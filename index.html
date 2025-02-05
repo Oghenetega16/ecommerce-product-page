@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
@@ -14,11 +14,12 @@
   <div id="container">
     <header>
       <div id="logo">
-        <img src="./images/icon-menu.svg" alt="menu icon">
+        <img class="menu-icon" src="./images/icon-menu.svg" alt="menu icon">
         <img class="logo-icon" src="./images/logo.svg" alt="sneakers logo">
       </div>
       <nav>
         <div class="nav-list">
+          <img class="close-icon" src="./images/icon-close.svg" alt="close icon">
           <ul class="nav-items">
             <li class="nav-item">Collections</li>
             <li class="nav-item">Men</li>
@@ -28,8 +29,8 @@
           </ul>
         </div>
         <div class="cart-img">
-          <img src="./images/icon-cart.svg" alt="cart icon">
-          <p class="cartNotification">3</p>
+          <img class="cart-icon" src="./images/icon-cart.svg" alt="cart icon">
+          <p class="cartNotification"></p>
           <img class="image-avatar" src="./images/image-avatar.png" alt="a guy on shade">
         </div>
       </nav>
@@ -39,6 +40,20 @@
       <div class="product-main-image">
         <img src="./images/image-product-1.jpg" alt="">
       </div>
+
+      <div class="cart-details">
+        <p class="cart">Cart</p>
+        <div class="cart-items">
+          <img class="cart-image" src="./images/image-product-1-thumbnail.jpg" alt="">
+          <div class="item-price">
+            <p>Fall Limited Edition Sneakers</p>
+            <p class="item-calc">$125.00 x <span class="item-unit"></span> <span class="total-price"></span></p>
+          </div>
+          <img class="delete-icon" src="./images/icon-delete.svg" alt="delete icon">
+        </div>
+        <p class="checkout-btn">Checkout</p>
+      </div>
+
       <div class="product-images">
         <div class="previous">
           <img class="arrow" src="./images/icon-previous.svg" alt="previous icon">
@@ -52,7 +67,6 @@
         <div class="next">
           <img class="arrow" src="./images/icon-next.svg" alt="next icon">
         </div>
-      </div>
     </section>
 
     <main>
