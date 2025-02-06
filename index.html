@@ -13,11 +13,9 @@
 <body>
   <div id="container">
     <header>
-      <div id="logo">
+      <div class="logo-features">
         <img class="menu-icon" src="./images/icon-menu.svg" alt="menu icon">
         <img class="logo-icon" src="./images/logo.svg" alt="sneakers logo">
-      </div>
-      <nav>
         <div class="nav-list">
           <img class="close-icon" src="./images/icon-close.svg" alt="close icon">
           <ul class="nav-items">
@@ -28,6 +26,9 @@
             <li class="nav-item">Contact</li>
           </ul>
         </div>
+      </div>
+      <nav>
+        
         <div class="cart-img">
           <img class="cart-icon" src="./images/icon-cart.svg" alt="cart icon">
           <p class="cartNotification"></p>
@@ -36,65 +37,94 @@
       </nav>
     </header>
 
-    <section class="product-image">
-      <div class="product-main-image">
-        <img src="./images/image-product-1.jpg" alt="">
-      </div>
-
-      <div class="cart-details">
-        <p class="cart">Cart</p>
-        <div class="cart-items">
-          <img class="cart-image" src="./images/image-product-1-thumbnail.jpg" alt="">
-          <div class="item-price">
-            <p>Fall Limited Edition Sneakers</p>
-            <p class="item-calc">$125.00 x <span class="item-unit"></span> <span class="total-price"></span></p>
+    <div class="main">
+      <section class="product-image">
+        <div class="product-main-image">
+          <img src="./images/image-product-1.jpg" alt="">
+        </div>
+      
+        <div class="cart-details">
+          <p class="cart">Cart</p>
+          <div class="cart-items">
+            <img class="cart-image" src="./images/image-product-1-thumbnail.jpg" alt="">
+            <div class="item-price">
+              <p>Fall Limited Edition Sneakers</p>
+              <p class="item-calc">$125.00 x <span class="item-unit"></span> <span class="total-price"></span></p>
+            </div>
+            <img class="delete-icon" src="./images/icon-delete.svg" alt="delete icon">
           </div>
-          <img class="delete-icon" src="./images/icon-delete.svg" alt="delete icon">
+          <p class="checkout-btn">Checkout</p>
         </div>
-        <p class="checkout-btn">Checkout</p>
-      </div>
-
-      <div class="product-images">
-        <div class="previous">
-          <img class="arrow" src="./images/icon-previous.svg" alt="previous icon">
-        </div>
-        <div class="product-other-images">
-          <img class="active" src="./images/image-product-1.jpg" alt="shoe product 1">
-          <img src="./images/image-product-2.jpg" alt="shoe product 2">
-          <img src="./images/image-product-3.jpg" alt="shoe product 3">
-          <img src="./images/image-product-4.jpg" alt="shoe product 4">
-        </div>
-        <div class="next">
-          <img class="arrow" src="./images/icon-next.svg" alt="next icon">
-        </div>
-    </section>
-
-    <main>
-      <section class="product-details">
-        <span>Sneaker Company</span>
-        <h1>Fall Limited Edition Sneakers</h1>
-        <p>These low-profile sneakers are your perfect casual wear companion. Featuring a
-        durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-        <div class="prices">
-          <div class="price-discount">
-            <h2 class="new-price">$125.00</h2>
-            <p class="discount">50%</p>
+      
+        <div class="product-images">
+          <div class="previous">
+            <img class="arrow" src="./images/icon-previous.svg" alt="previous icon">
           </div>
-          <span class="old-price">$250.00</span>
-        </div>
-        <div class="product-quantity-button">
-          <div class="product-quantity">
-            <img class="reduce-unit" src="./images/icon-minus.svg" alt="minus icon">
-            <p class="unit">0</p>
-            <img class="increase-unit" src="./images/icon-plus.svg" alt="plus icon">
+          <div class="product-other-images">
+            <img class="active" src="./images/image-product-1.jpg" alt="shoe product 1">
+            <img src="./images/image-product-2.jpg" alt="shoe product 2">
+            <img src="./images/image-product-3.jpg" alt="shoe product 3">
+            <img src="./images/image-product-4.jpg" alt="shoe product 4">
           </div>
-          <div class="product-button">
-            <img src="./images/icon-cart.svg" alt="cart icon">
-            <p>Add to cart</p>
+          <div class="next">
+            <img class="arrow" src="./images/icon-next.svg" alt="next icon">
           </div>
         </div>
       </section>
-    </main>
+      
+      <main>
+        <section class="product-details">
+          <span>Sneaker Company</span>
+          <h1>Fall Limited Edition Sneakers</h1>
+          <p>These low-profile sneakers are your perfect casual wear companion. Featuring a
+            durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+          <div class="prices">
+            <div class="price-discount">
+              <h2 class="new-price">$125.00</h2>
+              <p class="discount">50%</p>
+            </div>
+            <span class="old-price">$250.00</span>
+          </div>
+          <div class="product-quantity-button">
+            <div class="product-quantity">
+              <img class="reduce-unit" src="./images/icon-minus.svg" alt="minus icon">
+              <p class="unit">0</p>
+              <img class="increase-unit" src="./images/icon-plus.svg" alt="plus icon">
+            </div>
+            <div class="product-button">
+              <img src="./images/icon-cart.svg" alt="cart icon">
+              <p>Add to cart</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   </div>
+
+  <!-- <div class="product-overlay">
+    <div class="close-icon">
+      <img src="./images/icon-close.svg" alt="close icon">
+    </div>
+    <div class="product-images-overlay">
+      <div class="previous-btn">
+        <img class="arrow" src="./images/icon-previous.svg" alt="previous icon">
+      </div>
+      <div class="product-main-image">
+        <img class="active" src="./images/image-product-1.jpg" alt="">
+        <img src="./images/image-product-2.jpg" alt="">
+        <img src="./images/image-product-3.jpg" alt="">
+        <img src="./images/image-product-4.jpg" alt="">
+      </div>
+      <div class="product-other-images">
+        <img src="./images/image-product-1.jpg" alt="shoe product 1">
+        <img src="./images/image-product-2.jpg" alt="shoe product 2">
+        <img src="./images/image-product-3.jpg" alt="shoe product 3">
+        <img src="./images/image-product-4.jpg" alt="shoe product 4">
+      </div>
+      <div class="next-btn">
+        <img class="arrow" src="./images/icon-next.svg" alt="next icon">
+      </div>
+    </div>
+  </div> -->
 </body>
 </html>

@@ -34,14 +34,12 @@ function showImage(index) {
 // Show previous image
 prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + productImage.length) % productImage.length;
-    // updateSlide();
     showImage(currentIndex);
 });
 
 // Show next image
 nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % productImage.length;
-    // updateSlide();
     showImage(currentIndex);
 });
 
@@ -119,18 +117,35 @@ deleteCartItem.addEventListener('click', () => {
     }, 2000);
 });
 
-// function updateSlide() {
-//     const offset = -currentIndex * 100;
-//     document.querySelector('.product-other-images').style.transform = `translateX(${offset}%)`;
-// }
-
 // When menu icon is clicked
 menuIcon.addEventListener('click', () => {
-    document.querySelector('header nav .nav-list').style.display = 'block';
-    
+    document.querySelector('header .nav-list').style.display = 'block';
 });
 
 // When close icon is clicked
 closeIcon.addEventListener('click', () => {
-    document.querySelector('header nav .nav-list').style.display = 'none';
+    document.querySelector('header .nav-list').style.display = 'none';
+});
+
+
+// For Desktop and Tablet
+const overlayImage = document.querySelectorAll('.product-main-image img');
+const previous = document.querySelector('.previous-btn');
+const next = document.querySelector('.next-btn');
+let current = 0;
+
+function displayImage(index) {
+    overlayImage.forEach((image, i) => {
+        image.classList.toggle("active", i === index);
+    });
+}
+
+previous.addEventListener('click', () => {
+    current = (current - 1 + overlayImage.length) % overlayImage.length;
+    displayImage(current);
+});
+
+next.addEventListener('click', () => {
+    current = (current + 1 ) % overlayImage.length;
+    displayImage(current);
 });
