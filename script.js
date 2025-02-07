@@ -129,23 +129,48 @@ closeIcon.addEventListener('click', () => {
 
 
 // For Desktop and Tablet
-const overlayImage = document.querySelectorAll('.product-main-image img');
-const previous = document.querySelector('.previous-btn');
-const next = document.querySelector('.next-btn');
-let current = 0;
+let currentSlide = 0;
 
-function displayImage(index) {
-    overlayImage.forEach((image, i) => {
-        image.classList.toggle("active", i === index);
-    });
+function showSlides(n) {
+    const largeImages = document.querySelectorAll('.large-image');
+    const thumbnails = document.querySelectorAll('.images img');
+
+    if (n > largeImages.length) {
+        currentSlide = 1;
+    } else if (n < 1) {
+        currentSlide = largeImages.length;
+    }
+
+    for (let i = 0; i < largeImages.length; i++) {
+        largeImages[i].classList.remove('active');
+    }
+
+    for (let i = 0; i < thumbnails.length; i++) {
+        thumbnails[i].classList.remove('active');
+    }
+
+    largeImages[currentSlide - 1].classList.add('active');
+    thumbnails[currentSlide - 1].classList.add('active');
 }
 
-previous.addEventListener('click', () => {
-    current = (current - 1 + overlayImage.length) % overlayImage.length;
-    displayImage(current);
+function changeSlide(n) {
+    showSlides(currentSlide += n);
+}
+
+document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+        showSlides(currentSlide = index + 1);
+    });
 });
 
-next.addEventListener('click', () => {
-    current = (current + 1 ) % overlayImage.length;
-    displayImage(current);
+showSlides(currentSlide);
+
+
+productOverlay = document.querySelector('.product-overlay');
+closeOverlay = document.querySelector('.product-overlay #close-icon');
+closeOverlay.addEventListener('click', () => {
+    productOverlay.classList.add('hide');
 });
+
+
+
