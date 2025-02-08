@@ -18,7 +18,7 @@ let cartDetails = document.querySelector('.cart-details');
 const deleteCartItem = document.querySelector('.delete-icon');
 
 const menuIcon = document.querySelector('.menu-icon');
-const closeIcon = document.querySelector('.close-icon');
+const closeIcon = document.querySelector('.nav-list-overlay .close-icon');
 
 let currentIndex = 0;
 let unitScore = 0;
@@ -119,12 +119,14 @@ deleteCartItem.addEventListener('click', () => {
 
 // When menu icon is clicked
 menuIcon.addEventListener('click', () => {
-    document.querySelector('header .nav-list').style.display = 'block';
+    document.querySelector('.nav-list-overlay').style.display = 'block';
+    document.querySelector('#container').classList.toggle('blurred');
 });
 
 // When close icon is clicked
 closeIcon.addEventListener('click', () => {
-    document.querySelector('header .nav-list').style.display = 'none';
+    document.querySelector('.nav-list-overlay').style.display = 'none';
+    document.querySelector('#container').classList.remove('blurred');
 });
 
 
@@ -170,6 +172,15 @@ productOverlay = document.querySelector('.product-overlay');
 closeOverlay = document.querySelector('.product-overlay #close-icon');
 closeOverlay.addEventListener('click', () => {
     productOverlay.classList.add('hide');
+    document.querySelector('#container').classList.remove('blurred');
+});
+
+selectedThumbnails = document.querySelectorAll('.product-other-images .img');
+selectedThumbnails.forEach((selectedThumbnail) => {
+    selectedThumbnail.addEventListener('click', () => {
+        productOverlay.classList.remove('hide');
+        document.querySelector('#container').classList.toggle('blurred');
+    });
 });
 
 
