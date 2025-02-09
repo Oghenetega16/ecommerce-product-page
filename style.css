@@ -385,6 +385,7 @@ main {
         margin: 20px 50px;
         padding-bottom: 30px;
         border-bottom: 1px solid #ccccc8c0;
+        position: relative;
     }
 
     header .menu-icon {
@@ -415,16 +416,18 @@ main {
     }
 
     header .nav-list .nav-items .nav-item {
+        cursor: pointer;
         transition: border-bottom 0.1s ease;
+        position: relative;
+        margin: 0;
     }
 
-    /* header .nav-list .nav-items .nav-item:hover {
-        padding-bottom: 38px;
-        margin-top: 38px;
+    header .nav-list .nav-items .nav-item:hover {
+        
         transform: none;
         border-bottom: 4px solid var(--orange);
         font-weight: 700;
-    } */
+    } 
 
     header nav .cart-img .image-avatar {
         width: 40px;
@@ -617,15 +620,15 @@ main {
 
 @media (min-width: 1024px) {
     .main {
-        margin: 100px;
-        gap: 100px;
+        margin: 70px 100px 10px 100px;
+        gap: 75px;
         display: flex;
         flex-direction: row;
         align-items: center
     }
 
     .product-image {
-        width: 450px;
+        width: 400px;
         gap: 25px;
     }
 
@@ -634,8 +637,8 @@ main {
     }
 
     .product-images .product-other-images img {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
     }
 
     .product-details {
@@ -643,25 +646,47 @@ main {
     }
 
     .product-details h1 {
-        font-size: 32px;
+        font-size: 34px;
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     .product-details .prices {
         display: flex;
         flex-direction: column;
-        
-        
+        align-items: normal;
+        margin-bottom: 25px;
     }
 
     .product-quantity-button {
         display: flex;
+        align-items: center;
+        gap: 15px;
     }
 
     .product-quantity-button .product-quantity {
-        width: 40%;
+        width: 50%;
+        margin: 0;
+        height: 52px;
     }
 
-    .product-quantity-button .product-buton {
-        width: 60%;
+    .product-quantity-button .product-button {
+        width: 100%;
+        margin: 0;
+    }
+
+    .cart-details {
+        width: 350px;
+        height: auto;
+        transform: translate(180%, -45%);
+    }
+
+    .cart-details .cart-items {
+        margin: 20px;
+        padding: 0
+    }
+
+    .cart-details .checkout-btn {
+        margin: 20px;
     }
 }
