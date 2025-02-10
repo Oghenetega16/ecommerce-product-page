@@ -690,3 +690,10 @@ main {
         margin: 20px;
     }
 }
+
+/* Things left to do:
+1. Make the close icon change color when clicked.
+2. Set the border bottom color for the nav items when hovered.
+3. Make the previous and next buttons change color when clicked.
+4. Make the thumbnails display its image in the large image div when clicked.
+5. Check the mobile designs. */
