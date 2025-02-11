@@ -1,31 +1,32 @@
-const productImage = document.querySelectorAll('.product-other-images img');
-const prevButton = document.querySelector('.previous');
-const nextButton = document.querySelector('.next');
+const productImage = document.querySelectorAll('.products-mobile img');
+const prevButton = document.querySelector('.previous-btn');
+const nextButton = document.querySelector('.next-btn');
 
 const unit = document.querySelector('.unit');
 const increaseUnit = document.querySelector('.increase-unit');
 const decreaseUnit = document.querySelector('.reduce-unit');
 
-const addToCart = document.querySelector('.product-button');
-const cartNotification = document.querySelector('.cartNotification');
+const addToCart = document.querySelector('.button-mobile');
+const cartNotification = document.querySelector('.cart-notification');
 
 const cartIcon = document.querySelector('.cart-icon');
 const totalItemPrice = document.querySelector('.total-price');
 const itemQuantity = document.querySelector('.item-unit');
 
 let checkOut = document.querySelector('.checkout-btn');
-let cartDetails = document.querySelector('.cart-details');
+let cartDetails = document.querySelector('.cart-details-mobile');
 const deleteCartItem = document.querySelector('.delete-icon');
 
-const menuIcon = document.querySelector('.menu-icon');
-const closeIcon = document.querySelector('.nav-list-overlay .close-icon');
+const menuIcon = document.querySelector('.menu');
+const closeIcon = document.querySelector('.close');
 
 let currentIndex = 0;
 let unitScore = 0;
 let itemUnit;
 let totalPrice;
 
-// Function to display images
+                              // functionality for mobile devices
+// function to display images
 function showImage(index) {
     productImage.forEach((image, i) => {
         image.classList.toggle("active", i === index);
@@ -120,7 +121,7 @@ deleteCartItem.addEventListener('click', () => {
 // When menu icon is clicked
 menuIcon.addEventListener('click', () => {
     document.querySelector('.nav-list-overlay').style.display = 'block';
-    document.querySelector('#container').classList.toggle('blurred');
+    document.querySelector('.container-mobile').classList.toggle('blurred');
 });
 
 // When close icon is clicked
@@ -131,57 +132,57 @@ closeIcon.addEventListener('click', () => {
 
 
 // For Desktop and Tablet
-let currentSlide = 0;
+// let currentSlide = 0;
 
-function showSlides(n) {
-    const largeImages = document.querySelectorAll('.large-image');
-    const thumbnails = document.querySelectorAll('.images img');
+// function showSlides(n) {
+//     const largeImages = document.querySelectorAll('.large-image');
+//     const thumbnails = document.querySelectorAll('.images img');
 
-    if (n > largeImages.length) {
-        currentSlide = 1;
-    } else if (n < 1) {
-        currentSlide = largeImages.length;
-    }
+//     if (n > largeImages.length) {
+//         currentSlide = 1;
+//     } else if (n < 1) {
+//         currentSlide = largeImages.length;
+//     }
 
-    for (let i = 0; i < largeImages.length; i++) {
-        largeImages[i].classList.remove('active');
-    }
+//     for (let i = 0; i < largeImages.length; i++) {
+//         largeImages[i].classList.remove('active');
+//     }
 
-    for (let i = 0; i < thumbnails.length; i++) {
-        thumbnails[i].classList.remove('active');
-    }
+//     for (let i = 0; i < thumbnails.length; i++) {
+//         thumbnails[i].classList.remove('active');
+//     }
 
-    largeImages[currentSlide - 1].classList.add('active');
-    thumbnails[currentSlide - 1].classList.add('active');
-}
+//     largeImages[currentSlide - 1].classList.add('active');
+//     thumbnails[currentSlide - 1].classList.add('active');
+// }
 
-function changeSlide(n) {
-    showSlides(currentSlide += n);
-}
+// function changeSlide(n) {
+//     showSlides(currentSlide += n);
+// }
 
-document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
-    thumbnail.addEventListener('click', () => {
-        showSlides(currentSlide = index + 1);
-    });
-});
+// document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+//     thumbnail.addEventListener('click', () => {
+//         showSlides(currentSlide = index + 1);
+//     });
+// });
 
-showSlides(currentSlide);
+// showSlides(currentSlide);
 
 
-productOverlay = document.querySelector('.product-overlay');
-closeOverlay = document.querySelector('.product-overlay #close-icon');
-closeOverlay.addEventListener('click', () => {
-    productOverlay.classList.add('hide');
-    document.querySelector('#container').classList.remove('blurred');
-});
+// productOverlay = document.querySelector('.product-overlay');
+// closeOverlay = document.querySelector('.product-overlay #close-icon');
+// closeOverlay.addEventListener('click', () => {
+//     productOverlay.classList.add('hide');
+//     document.querySelector('#container').classList.remove('blurred');
+// });
 
-selectedThumbnails = document.querySelectorAll('.product-other-images .img');
-selectedThumbnails.forEach((selectedThumbnail) => {
-    selectedThumbnail.addEventListener('click', () => {
-        productOverlay.classList.remove('hide');
-        document.querySelector('#container').classList.toggle('blurred');
-    });
-});
+// selectedThumbnails = document.querySelectorAll('.product-other-images .img');
+// selectedThumbnails.forEach((selectedThumbnail) => {
+//     selectedThumbnail.addEventListener('click', () => {
+//         productOverlay.classList.remove('hide');
+//         document.querySelector('#container').classList.toggle('blurred');
+//     });
+// });
 
 
 
