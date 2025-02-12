@@ -46,7 +46,7 @@
     </section>
 
     <section>
-      <div class="product-info">
+      <div class="product-info-mobile">
         <span>Sneaker Company</span>
         <h1>Fall Limited Edition Sneakers</h1>
         <p>These low-profile sneakers are your perfect casual wear companion. Featuring a
@@ -74,7 +74,7 @@
         </div>
       </div>
     </section>
-
+  </div>
                                 <!-- overlays for mobile  -->
   <div class="nav-list-overlay">
     <img class="close" src="./images/icon-close.svg" alt="close icon">
@@ -90,10 +90,12 @@
   <div class="cart-details-mobile">
     <p class="cart-text">Cart</p>
     <div class="cart-items">
-      <img class="cart-image" src="./images/image-product-1.jpg" alt="">
       <div class="item-price">
-        <p>Fall Limited Edition Sneakers</p>
-        <p class="item-calc">$125.00 x <span class="item-unit"></span> <span class="total-price"></span></p>
+        <img class="cart-image" src="./images/image-product-1.jpg" alt="">
+        <div class="cart-content">
+          <p>Fall Limited Edition Sneakers</p>
+          <p class="item-calc">$125.00 x <span class="item-unit"></span> <span class="total-price"></span></p>
+        </div>
       </div>
       <img class="delete-icon" src="./images/icon-delete.svg" alt="delete icon">
     </div>
@@ -104,9 +106,8 @@
                                 <!-- html for desktop -->
   <div class="container-desktop">
     <header class="header-desktop">
-      <img class="logo" src="./images/logo.svg" alt="sneakers logo">
-
       <nav>
+        <img class="logo" src="./images/logo.svg" alt="sneakers logo">
         <div class="nav-list">
           <ul class="nav-items">
             <li class="nav-item"><a>Collections</a></li>
@@ -119,30 +120,30 @@
       </nav>
 
       <div class="cart_image">
-        <img class="cart-icon" src="./images/icon-cart.svg" alt="cart icon">
-        <p class="cartNotification"></p>
+        <img class="cart" src="./images/icon-cart.svg" alt="cart icon">
+        <p class="cart-notification-desktop"></p>
         <img class="image-avatar" src="./images/image-avatar.png" alt="a guy on shade">
       </div>
     </header>
 
     <main>
-      <section class="">
-        <div class="large-images">
-          <img src="./images/image-product-1.jpg" alt="">
-          <img src="./images/image-product-2.jpg" alt="">
-          <img src="./images/image-product-3.jpg" alt="">
-          <img src="./images/image-product-4.jpg" alt="">
+      <section class="images_thumbnails">
+        <div class="product-image">
+          <img class="large-image active" src="./images/image-product-1.jpg" alt="shoe product 1">
+          <img class="large-image" src="./images/image-product-2.jpg" alt="shoe product 2">
+          <img class="large-image" src="./images/image-product-3.jpg" alt="shoe product 3">
+          <img class="large-image" src="./images/image-product-4.jpg" alt="shoe product 4">
         </div>
         <div class="thumbnails">
-          <img class="thumbnail active" src="./images/image-product-1.jpg" alt="shoe product 1">
-          <img class="thumbnail" src="./images/image-product-2.jpg" alt="shoe product 2">
-          <img class="thumbnail" src="./images/image-product-3.jpg" alt="shoe product 3">
-          <img class="thumbnail" src="./images/image-product-4.jpg" alt="shoe product 4">
+          <img class="thumbnail active" src="./images/image-product-1-thumbnail.jpg" alt="shoe thumbnail 1">
+          <img class="thumbnail" src="./images/image-product-2-thumbnail.jpg" alt="shoe thumbnail 2">
+          <img class="thumbnail" src="./images/image-product-3-thumbnail.jpg" alt="shoe thumbnail 3">
+          <img class="thumbnail" src="./images/image-product-4-thumbnail.jpg" alt="shoe thumbnail 4">
         </div>
       </section>
 
       <section>
-        <div class="product-details">
+        <div class="product-info-desktop">
           <span>Sneaker Company</span>
           <h1>Fall Limited Edition Sneakers</h1>
           <p>These low-profile sneakers are your perfect casual wear companion. Featuring a
@@ -156,11 +157,11 @@
             <span class="old-price">$250.00</span>
           </div>
       
-          <div class="product-features">
+          <div class="product-features-desktop">
             <div class="quantity-desktop">
-              <img class="reduce-unit" src="./images/icon-minus.svg" alt="minus icon">
-              <p class="unit">0</p>
-              <img class="increase-unit" src="./images/icon-plus.svg" alt="plus icon">
+              <img class="minus" src="./images/icon-minus.svg" alt="minus icon">
+              <p class="quantity">0</p>
+              <img class="plus" src="./images/icon-plus.svg" alt="plus icon">
             </div>
       
             <div class="button-desktop">
@@ -175,15 +176,17 @@
                                 <!-- overlays for desktop -->
   <div class="cart-details-desktop">
     <p class="cart-text">Cart</p>
-    <div class="cart-items">
-      <img class="cart-image" src="./images/image-product-1.jpg" alt="">
+    <div class="cart-items-desktop">
       <div class="item-price">
-        <p>Fall Limited Edition Sneakers</p>
-        <p class="item-calc">$125.00 x <span class="item-unit"></span> <span class="total-price"></span></p>
+        <img class="cart-image" src="./images/image-product-1.jpg" alt="">
+        <div class="cart-content-desktop">
+          <p>Fall Limited Edition Sneakers</p>
+          <p class="item-calc">$125.00 x <span class="item-unit"></span> <span class="total-price"></span></p>
+        </div>
       </div>
-      <img class="delete-icon" src="./images/icon-delete.svg" alt="delete icon">
+      <img class="delete" src="./images/icon-delete.svg" alt="delete icon">
     </div>
-    <p class="checkout-btn">Checkout</p>
+    <p class="checkout">Checkout</p>
   </div>
 
   <div class="product-overlay-desktop hide">
@@ -194,17 +197,17 @@
       <div class="previous-btn" onclick="changeSlide(-1)">
         <img class="arrow" src="./images/icon-previous.svg" alt="previous icon">
       </div>
-      <div class="main-image">
-        <img class="large-image active" src="./images/image-product-1.jpg" alt="">
-        <img class="large-image" src="./images/image-product-2.jpg" alt="">
-        <img class="large-image" src="./images/image-product-3.jpg" alt="">
-        <img class="large-image" src="./images/image-product-4.jpg" alt="">
+      <div class="overlay-large-image">
+        <img class="overlay-large-image active" src="./images/image-product-1.jpg" alt="shoe product 1">
+        <img class="overlay-large-image" src="./images/image-product-2.jpg" alt="shoe product 2">
+        <img class="overlay-large-image" src="./images/image-product-3.jpg" alt="shoe product 3">
+        <img class="overlay-large-image" src="./images/image-product-4.jpg" alt="shoe product 4">
       </div>
-      <div class="images">
-        <img class="thumbnail active" src="./images/image-product-1.jpg" alt="shoe product 1">
-        <img class="thumbnail" src="./images/image-product-2.jpg" alt="shoe product 2">
-        <img class="thumbnail" src="./images/image-product-3.jpg" alt="shoe product 3">
-        <img class="thumbnail" src="./images/image-product-4.jpg" alt="shoe product 4">
+      <div class="overlay-thumbnails">
+        <img class="overlay-thumbnail active" src="./images/image-product-1-thumbnail.jpg" alt="shoe thumbnail 1">
+        <img class="overlay-thumbnail" src="./images/image-product-2-thumbnail.jpg" alt="shoe thumbnail 2">
+        <img class="overlay-thumbnail" src="./images/image-product-3-thumbnail.jpg" alt="shoe thumbnail 3">
+        <img class="overlay-thumbnail" src="./images/image-product-4-thumbnail.jpg" alt="shoe thumbnail 4">
       </div>
       <div class="next-btn" onclick="changeSlide(1)">
         <img class="arrow" src="./images/icon-next.svg" alt="next icon">

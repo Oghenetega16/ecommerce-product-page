@@ -32,25 +32,25 @@ function showImage(index) {
         image.classList.toggle("active", i === index);
     });
 }
-// Show previous image
+// handles click for the previous button
 prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + productImage.length) % productImage.length;
     showImage(currentIndex);
 });
 
-// Show next image
+// handles click for the next button
 nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % productImage.length;
     showImage(currentIndex);
 });
 
-// Increase unit quantity
+// handles click to increase unit quantity
 increaseUnit.onclick = () => {
     unitScore += 1;
     unit.textContent = unitScore;
 }
 
-// Decrease unit quantity
+// handles click to decrease unit quantity
 decreaseUnit.onclick = () => {
     if (unitScore > 0) {
         unitScore -= 1;
@@ -60,7 +60,7 @@ decreaseUnit.onclick = () => {
     }
 }
 
-// Add units to cart
+// handles click to add units to cart
 addToCart.addEventListener('click', () => {
     if (unitScore > 0) {
         cartNotification.style.display = 'block';
@@ -68,7 +68,7 @@ addToCart.addEventListener('click', () => {
     }
 });
 
-// Show cart details when clicked
+// handles click to show cart details when clicked
 cartIcon.addEventListener('click', () => {
     if (unitScore > 0) {
         cartDetails.style.display = 'block';
@@ -86,7 +86,7 @@ cartIcon.addEventListener('click', () => {
     }
 });
 
-// Checkout cart item
+// handles click to checkout cart item
 function checkOutItem() {
     document.body.style.opacity = 1;
     setTimeout(() => {
@@ -94,10 +94,10 @@ function checkOutItem() {
     }, 500);
 }
 
-// Add a click event to the checkout button
+// handles click to checkout an item
 checkOut.addEventListener('click', checkOutItem);
 
-// Function to display an empty cart
+// function to display an empty cart
 function emptyCart() {
     document.querySelector('.cart-items').style.display = 'none';
     checkOut.style.display = 'none';
@@ -109,7 +109,7 @@ function emptyCart() {
     cartDetails.style.display = 'block';
 }
 
-// Delete cart item
+// handles click to delete cart item
 deleteCartItem.addEventListener('click', () => {
     cartNotification.style.display = 'none';
     emptyCart();
@@ -118,13 +118,13 @@ deleteCartItem.addEventListener('click', () => {
     }, 2000);
 });
 
-// When menu icon is clicked
+// handles click for the menu icon 
 menuIcon.addEventListener('click', () => {
     document.querySelector('.nav-list-overlay').style.display = 'block';
     document.querySelector('.container-mobile').classList.toggle('blurred');
 });
 
-// When close icon is clicked
+// handles click for the close icon 
 closeIcon.addEventListener('click', () => {
     document.querySelector('.nav-list-overlay').style.display = 'none';
     document.querySelector('#container').classList.remove('blurred');
@@ -183,6 +183,123 @@ closeIcon.addEventListener('click', () => {
 //         document.querySelector('#container').classList.toggle('blurred');
 //     });
 // });
+
+// for desktop browsers
+const addUnit = document.querySelector('.plus');
+const reduceUnit = document.querySelector('.minus');
+const quantity = document.querySelector('.quantity');
+const addCart = document.querySelector('.button-desktop');
+const cartMessage = document.querySelector('.cart-notification-desktop');
+const cartDisplay = document.querySelector('.cart');
+let cartContainer = document.querySelector('.cart-details-desktop');
+const deleteItem = document.querySelector('.delete');
+const checkoutItem = document.querySelector('.checkout');
+let currentSlide = 0;
+
+// handles click to increase unit quantity
+addUnit.onclick = () => {
+    unitScore += 1;
+    quantity.textContent = unitScore;
+}
+
+// handles click to decrease unit quantity
+reduceUnit.onclick = () => {
+    if (unitScore > 0) {
+        unitScore -= 1;
+        quantity.textContent = unitScore;
+    } else {
+        unitScore = 0;
+    }
+}
+
+// handles click to add units to cart
+addCart.addEventListener('click', () => {
+    if (unitScore > 0) {
+        cartMessage.style.display = 'block';
+        cartMessage.textContent = unitScore;
+    }
+});
+
+cartDisplay.addEventListener('click', () => {
+    if (unitScore > 0) {
+        cartContainer.style.display = 'block';
+        itemUnit = Number(unitScore);
+        totalPrice = 125.00 * itemUnit;
+        totalItemPrice.textContent = `$${totalPrice}`;
+        itemQuantity.textContent = itemUnit;
+    } else if (unitScore === 0) {
+        empty();
+        setTimeout(() => {
+            cartContainer.style.display = 'none';
+            checkOutItem();
+        }, 2000);
+        
+    }
+});
+
+// function to display an empty cart
+function empty() {
+    document.querySelector('.cart-items-desktop').style.display = 'none';
+    checkoutItem.style.display = 'none';
+
+    const emptyText = document.createElement('span');
+    emptyText.className = 'empty-text';
+    emptyText.textContent = 'Your cart is empty.';
+    cartContainer.appendChild(emptyText);
+    cartContainer.style.display = 'block';
+}
+
+// handles click to checkout an item
+checkoutItem.addEventListener('click', checkOutItem);
+
+// handles click to delete cart item
+deleteItem.addEventListener('click', () => {
+    cartMessage.style.display = 'none';
+    empty();
+    setTimeout(() => {
+        checkOutItem();
+    }, 2000);
+});
+
+// function for displaying main images
+function showSlides(n) {
+    const largeImages = document.querySelectorAll('.large-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+
+    for (let i = 0; i < largeImages.length; i++) {
+        largeImages[i].classList.remove('active');
+    }
+
+    for (let i = 0; i < thumbnails.length; i++) {
+        thumbnails[i].classList.remove('active');
+    }
+
+    largeImages[currentSlide - 1].classList.add('active');
+    thumbnails[currentSlide - 1].classList.add('active');
+}
+
+// handles click for thumbnails
+document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+        showSlides(currentSlide = index + 1);
+    });
+});
+
+// function for showing the overlay slides
+function overlaySlides(n) {
+    if (n > largeImages.length) {
+        currentSlide = 1;
+    } else if (n < 1) {
+        currentSlide = largeImages.length;
+    }
+}
+
+// function to change slide
+function changeSlide(n) {
+    showSlides(currentSlide += n);
+}
+
+
 
 
 
