@@ -131,60 +131,7 @@ closeIcon.addEventListener('click', () => {
 });
 
 
-// For Desktop and Tablet
-// let currentSlide = 0;
-
-// function showSlides(n) {
-//     const largeImages = document.querySelectorAll('.large-image');
-//     const thumbnails = document.querySelectorAll('.images img');
-
-//     if (n > largeImages.length) {
-//         currentSlide = 1;
-//     } else if (n < 1) {
-//         currentSlide = largeImages.length;
-//     }
-
-//     for (let i = 0; i < largeImages.length; i++) {
-//         largeImages[i].classList.remove('active');
-//     }
-
-//     for (let i = 0; i < thumbnails.length; i++) {
-//         thumbnails[i].classList.remove('active');
-//     }
-
-//     largeImages[currentSlide - 1].classList.add('active');
-//     thumbnails[currentSlide - 1].classList.add('active');
-// }
-
-// function changeSlide(n) {
-//     showSlides(currentSlide += n);
-// }
-
-// document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
-//     thumbnail.addEventListener('click', () => {
-//         showSlides(currentSlide = index + 1);
-//     });
-// });
-
-// showSlides(currentSlide);
-
-
-// productOverlay = document.querySelector('.product-overlay');
-// closeOverlay = document.querySelector('.product-overlay #close-icon');
-// closeOverlay.addEventListener('click', () => {
-//     productOverlay.classList.add('hide');
-//     document.querySelector('#container').classList.remove('blurred');
-// });
-
-// selectedThumbnails = document.querySelectorAll('.product-other-images .img');
-// selectedThumbnails.forEach((selectedThumbnail) => {
-//     selectedThumbnail.addEventListener('click', () => {
-//         productOverlay.classList.remove('hide');
-//         document.querySelector('#container').classList.toggle('blurred');
-//     });
-// });
-
-// for desktop browsers
+// for desktop devices
 const addUnit = document.querySelector('.plus');
 const reduceUnit = document.querySelector('.minus');
 const quantity = document.querySelector('.quantity');
@@ -285,21 +232,59 @@ document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
     });
 });
 
-// function for showing the overlay slides
-function overlaySlides(n) {
-    if (n > largeImages.length) {
-        currentSlide = 1;
-    } else if (n < 1) {
-        currentSlide = largeImages.length;
+
+const previous = document.querySelector('.previous');
+const next = document.querySelector('.next');
+let overlayImages = document.querySelectorAll('.overlay-large-image');
+let overlayThumbnails = document.querySelectorAll('.overlay-thumbnail');
+
+function updateImageDisplay() {
+    overlayImages.forEach((overlayImage, index) => {
+        overlayImage.classList.toggle('active', index === currentSlide);
+    });
+
+    overlayThumbnails.forEach((overlayThumbnail, index) => {
+        overlayThumbnail.classList.toggle('active', index === currentSlide);
+    });
+}
+
+previous.addEventListener('click', () => {
+    currentSlide = (currentSlide > 0) ? currentSlide - 1 : overlayImages.length - 1;
+    updateImageDisplay();
+});
+
+next.addEventListener('click', () => {
+    currentSlide = (currentSlide < overlayImages.length - 1) ? currentSlide + 1 : 0;
+    updateImageDisplay();
+});
+
+function displaySlides(n) {
+
+    for (let i = 0; i < overlayImages.length; i++) {
+        overlayImages[i].classList.remove('active');
     }
+
+    for (let i = 0; i < overlayThumbnails.length; i++) {
+        overlayThumbnails[i].classList.remove('active');
+    }
+
+    overlayImages[currentSlide - 1].classList.add('active');
+    overlayThumbnails[currentSlide - 1].classList.add('active');
 }
 
-// function to change slide
-function changeSlide(n) {
-    showSlides(currentSlide += n);
-}
+// handles click for thumbnails
+overlayThumbnails.forEach((overlayThumbnail, index) => {
+    overlayThumbnail.addEventListener('click', () => {
+        displaySlides(currentSlide = index + 1);
+    });
+});
 
+const largeImage = document.querySelector('.product-image');
+const close = document.querySelector('.close-desktop');
+largeImage.addEventListener('click', () => {
+    document.querySelector('.product-overlay-desktop').classList.remove('hide');
+});
 
-
-
-
+close.addEventListener('click', () => {
+    document.querySelector('.product-overlay-desktop').classList.add('hide');
+}); 
