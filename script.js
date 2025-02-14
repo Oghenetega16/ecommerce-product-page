@@ -283,8 +283,10 @@ const largeImage = document.querySelector('.product-image');
 const close = document.querySelector('.close-desktop');
 largeImage.addEventListener('click', () => {
     document.querySelector('.product-overlay-desktop').classList.remove('hide');
+    document.querySelector('.container-desktop').classList.add('blurred');
 });
 
 close.addEventListener('click', () => {
     document.querySelector('.product-overlay-desktop').classList.add('hide');
+    document.querySelector('.container-desktop').classList.remove('blurred');
 }); 
