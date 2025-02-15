@@ -146,7 +146,7 @@
         <div class="product-info-desktop">
           <span>Sneaker Company</span>
           <h1>Fall Limited Edition Sneakers</h1>
-          <p>These low-profile sneakers are your perfect casual wear companion. Featuring a
+          <p class="text">These low-profile sneakers are your perfect casual wear companion. Featuring a
             durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
       
           <div class="prices">
@@ -161,6 +161,7 @@
             <div class="quantity-desktop">
               <img class="minus" src="./images/icon-minus.svg" alt="minus icon">
               <p class="quantity">0</p>
+              
               <img class="plus" src="./images/icon-plus.svg" alt="plus icon">
             </div>
       
@@ -169,6 +170,7 @@
               <p>Add to cart</p>
             </div>
           </div>
+        </div>
       </section>
     </main>
   </div>
@@ -181,7 +183,7 @@
         <img class="cart-image" src="./images/image-product-1.jpg" alt="">
         <div class="cart-content-desktop">
           <p>Fall Limited Edition Sneakers</p>
-          <p class="item-calc">$125.00 x <span class="item-unit"></span> <span class="total-price"></span></p>
+          <p class="item-calc">$125.00 x <span class="item-unit-desktop"></span> <span class="total-price-desktop"></span></p>
         </div>
       </div>
       <img class="delete" src="./images/icon-delete.svg" alt="delete icon">
@@ -191,11 +193,17 @@
 
   <div class="product-overlay-desktop hide">
     <div id="close-icon-desktop">
-      <img class="close-desktop" src="./images/icon-close.svg" alt="close icon">
+      <svg class="close-desktop" width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+          fill-rule="evenodd" />
+      </svg>
     </div>
     <div class="product-images-overlay">
       <div class="previous">
-        <img class="arrow" src="./images/icon-previous.svg" alt="previous icon">
+        <svg class="arrow" width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 1 3 9l8 8" stroke-width="3" fill="none" fill-rule="evenodd" />
+        </svg>
       </div>
       <div class="overlay-large-images">
         <img class="overlay-large-image active" src="./images/image-product-1.jpg" alt="shoe product 1">
@@ -210,7 +218,9 @@
         <img class="overlay-thumbnail" src="./images/image-product-4-thumbnail.jpg" alt="shoe thumbnail 4">
       </div>
       <div class="next">
-        <img class="arrow" src="./images/icon-next.svg" alt="next icon">
+        <svg class="arrow" width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+          <path d="m2 1 8 8-8 8" stroke-width="3" fill="none" fill-rule="evenodd" />
+        </svg>
       </div>
     </div>
   </div>

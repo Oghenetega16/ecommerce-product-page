@@ -406,7 +406,7 @@ a {
 
 /* header section */ 
     .header-desktop {
-        margin: 20px 70px;
+        margin: 0px 70px;
         padding-bottom: 30px;
         border-bottom: 1px solid #ccccc8c0;
         position: relative;
@@ -428,6 +428,7 @@ a {
 
     .header-desktop .nav-list .nav-items {
         display: flex;
+        align-items: center;
         gap: 20px;
         color: var(--very-dark-blue);
         font-weight: 400;
@@ -435,13 +436,23 @@ a {
     }
 
     .header-desktop .nav-list .nav-items .nav-item {
+        position: relative;
         cursor: pointer;
         transition: border-bottom 0.1s ease;
     }
 
     .header-desktop .nav-list .nav-items .nav-item:hover {
-        border-bottom: 4px solid var(--orange);
         font-weight: 700;
+    }
+
+    .header-desktop .nav-list .nav-items .nav-item:hover::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -40px;
+        height: 3px;
+        background: var(--orange);
     }
     
     .header-desktop .cart_image {
@@ -452,15 +463,24 @@ a {
 
     .header-desktop .cart_image .cart {
         width: 17px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .header-desktop .cart_image .cart:hover {
+        transform: scale(1.2);
     }
 
     .header-desktop .cart_image .image-avatar {
         width: 30px;
         transition: transform 0.2s ease;
+        cursor: pointer;
     }
 
     .header-desktop .cart_image .image-avatar:hover {
         transform: scale(1.2);
+        border-radius: 50px;
+        border: 2px solid var(--orange);
     }
 
     /* main section */
@@ -690,8 +710,7 @@ a {
         font-size: 1.1rem;
     }
 
-    .cart-items .item-price .total-price,
-    .checkout {
+    .total-price-desktop, .checkout { 
         color: var(--very-dark-blue);
         font-weight: 700;
     }
@@ -705,7 +724,7 @@ a {
     }
 
     .blurred {
-        /* filter: blur(10px); */
+        filter: blur(2px);
     }
 
     .product-overlay-desktop {
@@ -723,10 +742,15 @@ a {
         display: none;
     }
 
-    .product-overlay-desktop #close-icon-desktop img {
+    .product-overlay-desktop #close-icon-desktop svg {
         width: 15px;
         float: right;
         cursor: pointer;
+        fill: #69707D;
+    }
+
+    .product-overlay-desktop #close-icon-desktop svg:hover {
+        fill: var(--orange);
     }
 
     .product-overlay-desktop .product-images-overlay {
@@ -788,6 +812,7 @@ a {
         left: -6%;
         transform: translate(0, 450%);
         z-index: 2;
+        stroke: #1D2026;
         cursor: pointer;
     }
 
@@ -805,11 +830,17 @@ a {
         right: -6%;
         transform: translate(0, 450%);
         z-index: 2;
+        stroke: #1D2026;
         cursor: pointer;
     }
 }
 
 @media (min-width: 1024px) {
+    /* header section */
+    .header-desktop .cart_image {
+        gap: 2rem;
+    }
+    
     /* main section */
     main {
         margin: 80px;
@@ -817,7 +848,7 @@ a {
     }
 
     .images_thumbnails .product-image {
-        width: 400px;
+        width: 320px;
     }
 
     .images_thumbnails .product-image .large-image {
@@ -825,19 +856,21 @@ a {
     }
 
     .images_thumbnails .thumbnail {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
     }
 
     /* second section */
     .product-info-desktop {
         width: 400px;
+        margin-right: 0;
     }
 
     .product-info-desktop h1 {
         font-size: 34px;
         margin-top: 10px;
         margin-bottom: 20px;
+        width: 350px;
     }
 
     .product-info-desktop .prices {
@@ -853,35 +886,172 @@ a {
     .product-features-desktop .quantity-desktop {
         width: 50%;
         margin: 0;
-        height: 52px;
+        height: auto;
     }
 
     .product-features-desktop .button-desktop {
         width: 100%;
         margin: 0;
     }
+
+    /* overlays */
+    .cart-details-desktop {
+        left: 64%;
+    }
+
+    .product-overlay-desktop {
+        width: 420px;
+    }
+
+    .product-overlay-desktop .overlay-thumbnails {
+        width: 350px;
+        gap: .9rem;
+    }
+
+    .product-overlay-desktop .overlay-thumbnails img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .product-images-overlay .previous {
+        width: 55px;
+        height: 55px;
+        transform: translate(0, 450%);
+    }
+
+    .product-images-overlay .next {
+        width: 55px;
+        height: 55px;
+        transform: translate(0, 450%);
+    }
 }
 
-
-
-/*
-@media (min-width: 1024px) {
-
-    .cart-details {
-        width: 350px;
-        height: auto;
-        transform: translate(180%, -45%);
+@media (min-width: 1440px) {
+    /* header setion */
+    .header-desktop {
+        margin: 20px 170px;
     }
 
-    .cart-details .cart-items {
-        margin: 20px;
-        padding: 0
+    .header-desktop nav .logo {
+        width: 150px;
     }
 
-    .cart-details .checkout-btn {
-        margin: 20px;
+    .header-desktop .nav-list .nav-items {
+        font-size: 15px;
     }
-} */
+
+    .header-desktop .cart_image {
+        gap: 40px;
+    }
+
+    .header-desktop .cart_image .cart {
+        width: 20px;
+    }
+
+    .header-desktop .cart_image .image-avatar {
+        width: 35px;
+    }
+
+    /* main section */
+    main {
+        margin: 80px 0;
+        gap: 150px;
+    }
+
+    .images_thumbnails .product-image {
+        width: 450px;
+    }
+
+    .images_thumbnails .thumbnail {
+        width: 90px;
+        height: 90px;
+    }
+
+    /* second section */
+    .product-info-desktop {
+        width: 450px;
+    }
+
+    .product-info-desktop span {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .product-info-desktop h1 {
+        font-size: 35px;
+        padding-bottom: 1rem;
+    }
+
+    .product-info-desktop .text {
+        font-size: 17px;
+        line-height: 1.5em;
+        padding-bottom: .6rem;
+    }
+
+    .product-info-desktop .price-discount .new-price {
+        font-size: 28px;
+    }
+
+    .product-info-desktop .price-discount .discount {
+        font-size: 17px;
+    }
+
+    .product-info-desktop .prices .old-price {
+        font-size: 16px;
+        padding: 7px 0;
+    }
+
+    .product-features-desktop .quantity-desktop {
+        height: 58px;
+    }
+
+    .product-features-desktop .button-desktop {
+        padding: 10px 0;
+        gap: 15px;
+    }
+
+    .product-features-desktop .button-desktop img {
+        width: 20px;
+    }
+
+    /* overlays */
+    .cart-notification-desktop {
+        top: 6%; 
+        right: 6%;
+    }
+
+    .cart-details-desktop {
+        top: -2%;
+        left: 66%;
+    }
+
+    .product-overlay-desktop {
+        width: 500px;
+    }
+
+    .product-overlay-desktop .overlay-thumbnails {
+        width: 410px;
+        gap: .9rem;
+    }
+
+    .product-overlay-desktop .overlay-thumbnails img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .product-images-overlay .previous {
+        width: 65px;
+        height: 65px;
+        transform: translate(0, 450%);
+    }
+
+    .product-images-overlay .next {
+        width: 65px;
+        height: 65px;
+        transform: translate(0, 450%);
+    }
+}
+
 
 /* Things left to do:
 1. Make the close icon change color when clicked.

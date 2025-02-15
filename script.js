@@ -138,6 +138,8 @@ const quantity = document.querySelector('.quantity');
 const addCart = document.querySelector('.button-desktop');
 const cartMessage = document.querySelector('.cart-notification-desktop');
 const cartDisplay = document.querySelector('.cart');
+const itemUnitDesktop = document.querySelector('.item-unit-desktop');
+const totalPriceDesktop = document.querySelector('.total-price-desktop');
 let cartContainer = document.querySelector('.cart-details-desktop');
 const deleteItem = document.querySelector('.delete');
 const checkoutItem = document.querySelector('.checkout');
@@ -171,9 +173,9 @@ cartDisplay.addEventListener('click', () => {
     if (unitScore > 0) {
         cartContainer.style.display = 'block';
         itemUnit = Number(unitScore);
-        totalPrice = 125.00 * itemUnit;
-        totalItemPrice.textContent = `$${totalPrice}`;
-        itemQuantity.textContent = itemUnit;
+        totalPrice = (125.00 * itemUnit).toFixed(2);
+        totalPriceDesktop.textContent = `$${totalPrice}`;
+        itemUnitDesktop.textContent = itemUnit;
     } else if (unitScore === 0) {
         empty();
         setTimeout(() => {
@@ -249,14 +251,17 @@ function updateImageDisplay() {
 }
 
 previous.addEventListener('click', () => {
+    document.querySelector('.previous').style.stroke = 'var(--orange)';
     currentSlide = (currentSlide > 0) ? currentSlide - 1 : overlayImages.length - 1;
     updateImageDisplay();
 });
 
 next.addEventListener('click', () => {
+    document.querySelector('.next').style.stroke = 'var(--orange)';
     currentSlide = (currentSlide < overlayImages.length - 1) ? currentSlide + 1 : 0;
     updateImageDisplay();
 });
+
 
 function displaySlides(n) {
 
@@ -289,4 +294,6 @@ largeImage.addEventListener('click', () => {
 close.addEventListener('click', () => {
     document.querySelector('.product-overlay-desktop').classList.add('hide');
     document.querySelector('.container-desktop').classList.remove('blurred');
+    document.querySelector('.previous').style.stroke = '#1D2026';
+    document.querySelector('.next').style.stroke = '#1D2026';
 }); 
